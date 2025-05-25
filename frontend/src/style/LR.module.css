@@ -1,0 +1,336 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Main container for the layout */
+  .container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+    
+    /* Left side with background image */
+    .leftSide {
+      flex: 1;
+      background-image: url('../assets/bg.png'); /* Path to background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    /* Right side with form and text */
+    .rightSide {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      font-family: 'Manrope', sans-serif; /* Correct way to define font-family */
+      font-size: 0.9rem;
+    }
+    
+    .rightSide p2{
+      margin-left: -300px;
+    }
+  
+    .rightSide p3{
+      margin-left: -350px;
+    }
+  
+    
+    /* Styling for the link text */
+    .rightSide a {
+      color: #1B48DA;
+      font-weight: bold; /* Corrected bold declaration */
+    }
+  
+    .log a{
+      color: #ffffff;
+    }
+  
+    .sign a{
+      color:#000;
+    }
+  
+    a{
+      text-decoration: none;
+    }
+  
+    
+    .rightSide a:hover {
+      text-decoration: underline; /* Adds underline on hover */
+    }
+    
+    /* Middle section with logo and buttons */
+    .mid {
+      display: flex;
+      justify-content: space-between; /* Align logo to left and buttons to right */
+      padding: 10px 20px; /* Add padding around the content */
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+    }
+    
+    /* For the logo inside the mid section */
+    .mid img {
+      width: 100px;
+      height: 25px;
+    }
+    
+    /* For the buttons in the mid section */
+    .mid div {
+      display: flex;
+      gap: 30px; /* Adds space between buttons */
+    }
+    
+    /* Styling for the registration form */
+    .registerForm {
+      width: 80%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+  
+    .sign{
+      border: none;
+      background-color: #1e1e1e00;
+    }
+  
+    .log{
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: none;
+      background-color: #1B48DA;
+    }
+    
+    .registerForm input {
+      width: 95%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .registerForm button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1B48DA;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .registerForm button:hover {
+      background-color: #0056b3;
+    }
+    
+  
+  
+    /* Main container for the layout */
+  .container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  /* Left side with background image */
+  .leftSide {
+    flex: 1;
+    background-image: url('../assets/bg.png'); /* Path to background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Right side with form and text */
+  .rightSide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    padding: 20px;
+  }
+  
+  .rightSide p2 {
+    margin-left: -300px;
+  }
+  
+  /* Styling for the link text */
+  .rightSide a {
+    color: #1B48DA;
+    font-weight: bold;
+  }
+  
+  .rightSide a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Middle section with logo and buttons */
+  .mid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  /* For the logo inside the mid section */
+  .mid img {
+    width: 100px;
+    height: 25px;
+  }
+  
+  /* For the buttons in the mid section */
+  .mid div {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Button styles */
+  .sign {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .log {
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #1B48DA;
+    color: white;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* Registration form */
+  .registerForm {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .registerForm input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .registerForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1B48DA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .registerForm button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  /* For devices with max width 1024px (Tablets) */
+  @media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+  
+    .leftSide {
+        display: none; /* Hide the background image on smaller screens */
+    }
+  
+    .rightSide {
+        flex: none;
+        width: 100%;
+    }
+  
+    .mid img {
+        width: 80px;
+  
+    }
+  
+    .mid div {
+        flex-direction: column;
+        gap: 10px;
+    }
+  }
+  
+  /* For devices with max width 768px (Mobile devices) */
+  @media (max-width: 768px) {
+    .mid {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+  
+    .mid img {
+      width: 100px;
+  }
+  
+  .rightSide p2{
+    margin-left: 0px;
+  }
+  
+    .registerForm {
+        margin-top: 100px;
+        padding: 10px;
+    }
+  
+    .registerForm input {
+        font-size: 0.9rem;
+    }
+  
+    .registerForm button {
+        padding: 8px;
+    }
+  }
+  
+  /* For very small devices (max width 480px) */
+  @media (max-width: 480px) {
+    .mid img {
+        width: 100px;
+    }
+  
+    .mid{
+      flex-direction: row;
+    }
+  
+    .rightSide p2{
+      margin-left: 0px;
+    }
+  
+    .registerForm {
+        padding: 5px;
+    }
+  
+    .registerForm input {
+        font-size: 0.8rem;
+    }
+  
+    .registerForm button {
+        font-size: 0.9rem;
+    }
+  }
