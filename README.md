@@ -46,15 +46,17 @@ A full-stack MERN application that allows users to upload lecture videos, automa
 
 ```
 
+```
 project/
-├── backend/               # Express + MongoDB API
-│   ├── models/            # Mongoose schemas (User, Quiz)
-│   ├── routes/            # Auth, Upload, Quiz APIs
-│   └── utils/             # Transcript splitter
-├── frontend/              # React.js frontend
-│   └── components/        # UI components for views
-├── python/                # Flask app for AI processing
-│   └── app.py             # Whisper & MCQ generation
+├── backend/              # Express + MongoDB API
+│   ├── models/           # Mongoose schemas (User, Quiz)
+│   ├── routes/           # Auth, Upload, Quiz APIs
+│   └── utils/            # Transcript splitter
+├── frontend/             # React.js frontend
+│   └── components/       # UI components for views
+├── python/               # Flask app for AI processing
+│   └── app.py            # Whisper & MCQ generation
+```
 
 ````
 
