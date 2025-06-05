@@ -1,81 +1,99 @@
-Here’s a complete `README.md` file for your project, based on everything you've implemented:
-
----
-
 ```markdown
-# 🎓 AI-Powered Lecture Video Analyzer
+# 🎓 AI-Powered Lecture Video Quiz Generator
 
-This MERN-stack project allows users to upload lecture videos, automatically transcribes them using OpenAI Whisper, and generates multiple choice questions (MCQs) using Mistral via Ollama. It features user authentication, role-based access control, MongoDB integration, and a student quiz interface.
-
-## 🔧 Tech Stack
-
-- **Frontend:** React.js
-- **Backend:** Node.js + Express.js
-- **Database:** MongoDB + Mongoose
-- **AI Models:**
-  - 🎙 Whisper (for transcription)
-  - 🧠 Mistral (for MCQ generation via Ollama)
-- **Authentication:** JWT + bcrypt
-- **Styling:** CSS Modules
+A full-stack MERN application that allows users to upload lecture videos, automatically transcribes them using OpenAI Whisper, and generates MCQs (Multiple Choice Questions) using Mistral (via Ollama). It supports user authentication, admin privileges, and interactive student quiz functionality.
 
 ---
 
-## 🚀 Features
+## 🛠️ Tech Stack
 
-### 🔒 Authentication
-- User & Admin login/register with password hashing
-- Admin-only route protection (upload & quiz management)
-
-### 📥 Upload & Process
-- Upload MP4 videos
-- Real-time progress bar for transcription & MCQ generation
-- Uses `openai-whisper` to transcribe video to text
-- Splits text into chunks and generates MCQs via Ollama + Mistral
-
-### 📚 Quiz Management
-- Admin can:
-  - View uploaded quizzes
-  - Edit MCQs inline
-  - Export quizzes as JSON
-- Students can:
-  - Attempt quizzes
-  - See immediate correct answers
+- **Frontend:** React.js + CSS Modules
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB, Mongoose
+- **Python Services:** Flask + OpenAI Whisper + Ollama (Mistral)
+- **Authentication:** JWT, bcrypt
+- **AI Services:**
+  - 🧠 Whisper (audio transcription)
+  - 📝 Mistral (MCQ generation)
 
 ---
 
-## 📁 Folder Structure
+## 🌟 Key Features
+
+### 🔐 Authentication
+- Register/Login for users and admins
+- Admin passnumber required during registration
+- JWT-based protected routes
+
+### 🎥 Video Upload & AI Processing
+- Upload `.mp4` lecture videos
+- Transcribe audio to text using Whisper
+- Automatically generate MCQs using Mistral AI
+- Real-time progress bar during upload and processing
+
+### 📚 Quiz Management (Admin)
+- View all uploaded quizzes
+- Edit generated MCQs inline
+- Export quiz data as downloadable JSON
+
+### 🧑‍🎓 Student Quiz View
+- Take quizzes interactively
+- Submit answers and see correct answers instantly
+
+---
+
+## 📂 Project Structure
 
 ```
 
-root/
-├── backend/
-│   ├── models/          # Mongoose schemas
-│   ├── routes/          # Express routes
-│   ├── utils/           # Text splitting
-│   └── index.js         # Entry point
-├── frontend/
-│   ├── components/      # React components
-│   └── App.js           # Routing and Protected Routes
-├── python/
-│   └── app.py           # Flask server for Whisper & MCQ generation
+project/
+├── backend/               # Express + MongoDB API
+│   ├── models/            # Mongoose schemas (User, Quiz)
+│   ├── routes/            # Auth, Upload, Quiz APIs
+│   └── utils/             # Transcript splitter
+├── frontend/              # React.js frontend
+│   └── components/        # UI components for views
+├── python/                # Flask app for AI processing
+│   └── app.py             # Whisper & MCQ generation
 
 ````
 
 ---
 
-## 🔄 Setup Instructions
+## 🧪 How It Works
 
-### Backend
+1. **Admin logs in** and uploads a video.
+2. **Backend** sends the file to the **Python server**.
+3. **Whisper** transcribes the audio.
+4. Transcript is split into chunks and passed to **Mistral via Ollama**.
+5. Each chunk generates 2 MCQs.
+6. **MongoDB** stores the filename, transcript, and MCQs.
+7. Admin can **edit or export** quizzes.
+8. Students can **attempt quizzes**, see correct answers after submission.
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Backend (Node.js)
 
 ```bash
 cd backend
 npm install
 cp .env.example .env
-# Add your MongoDB URI and JWT_SECRET in .env
+# Add MONGO_URI and JWT_SECRET to your .env
 npm start
 ````
 
-### Python (Flask Server)
+### 2. Frontend (React)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 3. Python AI Server (Flask)
 
 ```bash
 cd python
@@ -85,47 +103,45 @@ pip install -r requirements.txt
 python app.py
 ```
 
-### Frontend
+### 4. Run Ollama (Mistral)
 
 ```bash
-cd frontend
-npm install
-npm run dev
+ollama serve
+ollama run mistral
 ```
 
 ---
 
-## 🌐 API Endpoints
+## 🔐 Admin Access
 
-### Auth
-
-* `POST /api/auth/register`
-* `POST /api/auth/login`
-
-### Upload & Quiz
-
-* `POST /api/upload`
-* `GET /api/quizzes`
-* `PUT /api/quizzes/:quizId/mcq/:mcqIndex`
+* Register as admin by selecting **role = admin**
+* Provide the correct **passnumber** (stored in `.env` as `ADMIN_PASSNUMBER`)
 
 ---
 
-## ✍️ Sample Admin Credentials
+## 🧠 AI Prompt Example
 
-* Use role: `"admin"` and passnumber (stored in `.env`) while registering
+```json
+Generate 2 multiple choice questions (MCQs) with 4 options and the correct answer, based on this transcript chunk:
+"""
+[transcript chunk]
+"""
+Return in JSON format:
+[
+  {
+    "question": "...",
+    "options": ["A", "B", "C", "D"],
+    "answer": "B"
+  }
+]
+```
 
 ---
 
-## ❗Challenges Faced
+## 💡 Optional Enhancements
 
-* Whisper model compatibility with Python 3.12
-* Ollama running Mistral model locally with GPU limitations
-* Ensuring MCQ JSON format for export and editing
-
----
-
-## 📽 Demo Video
-
-*A short walkthrough video is available showing the complete workflow.*
+* Add quiz result storage
+* Add user dashboard for students
+* Enable PDF quiz exports
 
 ---
